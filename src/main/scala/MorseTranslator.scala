@@ -1,5 +1,5 @@
 
-object Encoder{
+object MorseTranslator{
 
   // Taken from https://github.com/jordiolivares/Morsecoder/blob/master/morsedecoder.scala
   val encodingMap = Map(
