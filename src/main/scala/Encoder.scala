@@ -23,24 +23,21 @@ object Encoder{
 
   val decodingMap = encodingMap.map(_.swap)
 
-  def encode(msgToEncode: String): String = {
-    val encodedString: String = msgToEncode.map(encodingMap).mkString(" ")
-    println(encodedString)
+  def morseEncode(s: String): String = {
+    val encodedString: String = s.map(encodingMap).mkString(" ")
     return encodedString
   }
 
-  def decode(msgToDecode: String): String = {
-    val msgLetters = msgToDecode.split("[ ]")
+  def morseDecode(s: String): String ={
+  val msgLetters = s.split("[ ]")
     val decodedString: String = msgLetters.map(decodingMap).mkString("")
-    println(decodedString)
     return  decodedString
   }
 
   def main(args: Array[String]) {
     val msgToEncode: String = args(0).toString
-
-    println("Message to encode: " + msgToEncode)
-    val encodedMsg = encode(msgToEncode)
-    val decodedMsg = decode(encodedMsg)
+    val encodedMsg = morseEncode(msgToEncode)
+    val decodedMsg = morseDecode(encodedMsg)
+    printf("\nMessage Encoding:\n    %s\n    ↓\n    %s\n    ↓\n    %s\n",msgToEncode, encodedMsg, decodedMsg)
   }
 }
